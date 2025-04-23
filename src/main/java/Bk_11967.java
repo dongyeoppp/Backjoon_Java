@@ -2,6 +2,16 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
+// 좌표 정보를 담기 위해 사용
+class Position{
+    int x;
+    int y;
+    public Position(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+}
+
 public class Bk_11967 {
     // 이차원 배열 생성
     static ArrayList<Position>[][] graph;
@@ -12,17 +22,7 @@ public class Bk_11967 {
     // String 형태로 값을 저장할 수 있는 newSet 생성
     static Set<String> newSet = new HashSet<>();
 
-    // 좌표 정보를 담기 위해 사용
-    static class Position{
-        int x;
-        int y;
-        public Position(int x, int y){
-            this.x = x;
-            this.y = y;
-        }
-    }
-
-     static int bfs(int n){
+    static int bfs(int n){
         light = new boolean[n][n];
         visited = new boolean[n][n];
         // que 생성
