@@ -3,10 +3,10 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 // 좌표 정보를 담기 위해 사용
-class Position{
+class Position1 {
     int x;
     int y;
-    public Position(int x, int y){
+    public Position1(int x, int y){
         this.x = x;
         this.y = y;
     }
@@ -14,7 +14,7 @@ class Position{
 
 public class Bk_11967 {
     // 이차원 배열 생성
-    static ArrayList<Position>[][] graph;
+    static ArrayList<Position1>[][] graph;
     static int[] dx = {1,-1,0,0};
     static int[] dy = {0,0,1,-1};
     static boolean[][] light;
@@ -26,18 +26,18 @@ public class Bk_11967 {
         light = new boolean[n][n];
         visited = new boolean[n][n];
         // que 생성
-        Queue<Position> que = new LinkedList<>();
-        que.add(new Position(0,0));
+        Queue<Position1> que = new LinkedList<>();
+        que.add(new Position1(0,0));
         visited[0][0] = true;
         light[0][0] = true;
         int count = 1;
         while (!que.isEmpty()){
             // poll을 사용해 que의 맨앞에 값 제거하며 반환
-            Position pos = que.poll();
+            Position1 pos = que.poll();
             int row = pos.x;
             int col = pos.y;
             // 방문한 곳에서 켤 수 있는 방의 스위치 켜기
-            for(Position cur : graph[row][col]) {
+            for(Position1 cur : graph[row][col]) {
                 String x = String.valueOf(cur.x);
                 String y = String.valueOf(cur.y);
                 if (!light[cur.x][cur.y]) {
@@ -56,7 +56,7 @@ public class Bk_11967 {
                 if (0<=x && x < n && 0<= y && y < n && !visited[x][y]){
                     // 방문하지 않고, 불이 켜져 있는 곳
                     if (light[x][y]){
-                        que.add(new Position(x,y));
+                        que.add(new Position1(x,y));
                         visited[x][y] = true;
                     }
                     // 방문하지 않았고, 불이 꺼져있는 방 -> 추후에 불이 켜지면 방문가능한 곳이므로 newSet에 좌표 저장
@@ -90,7 +90,7 @@ public class Bk_11967 {
             int y = Integer.parseInt(arr1[1]);
             int a = Integer.parseInt(arr1[2]);
             int b = Integer.parseInt(arr1[3]);
-            graph[x-1][y-1].add(new Position(a-1,b-1));
+            graph[x-1][y-1].add(new Position1(a-1,b-1));
         }
         System.out.println(bfs(n));
     }
