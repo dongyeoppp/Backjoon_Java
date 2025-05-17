@@ -2,10 +2,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.Stack;
 
-class Position{
+class Position3 {
     char x;
     int y;
-    public Position(char x, int y){
+    public Position3(char x, int y){
         this.x = x;
         this.y = y;
     }
@@ -15,13 +15,13 @@ public class Bk_10799 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = br.readLine();
         // 스택에는 괄호 값과 그 괄호의 인덱스 값을 묶어서 넣어준다.
-        Stack<Position> stk = new Stack<>();
+        Stack<Position3> stk = new Stack<>();
         int result = 0;
         for(int i = 0; i < input.length() ; i++){
             char answer = input.charAt(i);
             // '(' 스택에 푸시
             if ( answer == '(') {
-                stk.push(new Position(answer,i));
+                stk.push(new Position3(answer,i));
             }
             else{
                 // ')'이 나올 경우는 무조건 스택의 맨 위의 값은 '('이므로 인덱스 값을 확인한 이후 pop 해준다.
