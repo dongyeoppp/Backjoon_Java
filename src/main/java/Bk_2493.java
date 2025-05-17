@@ -3,11 +3,11 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 // 스택에 담을 두 변수를 위한 객체 생성 (x = 탑의 높이, y = 탑의 위치)
-class Position{
+class Position2 {
     int x;
     int y;
     // 생성자 (메서드 이름이 클래스와 동일 함)
-    public Position(int x, int y){
+    public Position2(int x, int y){
         // this를 통해 매개변수와 구분
         this.x = x;
         this.y = y;
@@ -19,7 +19,7 @@ public class Bk_2493 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
         String[] arr = br.readLine().split(" ");
-        Stack<Position> stk = new Stack<>();
+        Stack<Position2> stk = new Stack<>();
         // 탑의 위치를 저장하는 리스트
         ArrayList<Integer> result = new ArrayList<>();
         for(int i = 0; i < n; i++){
@@ -36,7 +36,7 @@ public class Bk_2493 {
             else{
                 result.add(stk.peek().y);
             }
-            stk.push(new Position(answer,i+1));
+            stk.push(new Position2(answer,i+1));
         }
         for(int ans: result){
             sb.append(ans).append(" ");
